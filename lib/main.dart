@@ -36,13 +36,28 @@ class _SampleAppPageState extends State<SampleAppPage> {
     }
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: Text("Sample App"),
+  //     ),
+  //     body: ListView(children: widgets),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sample App"),
       ),
-      body: ListView(children: widgets),
+      body: ListView.builder(
+        itemCount: widgets.length,
+        itemBuilder: (BuildContext context, int position) {
+          return getRow(position);
+        },
+      ),
     );
   }
 
